@@ -14,11 +14,244 @@ body {
 .mySlides {
     display: none
 }
+    .timeline{
+  --uiTimelineMainColor: var(--timelineMainColor, #222);
+  --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #fff);
+
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.timeline:before{
+  content: "";
+  width: 4px;
+  height: 100%;
+  background-color: var(--uiTimelineMainColor);
+
+  position: absolute;
+  top: 0;
+}
+
+.timeline__group{
+  position: relative;
+}
+
+.timeline__group:not(:first-of-type){
+  margin-top: 4rem;
+}
+
+.timeline__year{
+  padding: .5rem 1.5rem;
+  color: var(--uiTimelineSecondaryColor);
+  background-color: var(--uiTimelineMainColor);
+
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.timeline__box{
+  position: relative;
+  /* position: top; */
+}
+
+.timeline__box:not(:last-of-type){
+  margin-bottom: 30px;
+}
+
+.timeline__box:before{
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--uiTimelineMainColor);
+
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+
+.timeline__date{
+  min-width: 65px;
+  position: absolute;
+  left: 0;
+
+  box-sizing: border-box;
+  padding: .5rem 1.5rem;
+  text-align: center;
+
+  background-color: var(--uiTimelineMainColor);
+  color: var(--uiTimelineSecondaryColor);
+}
+
+.timeline__day{
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+}
+
+.timeline__month{
+  display: block;
+  font-size: .8em;
+  text-transform: uppercase;
+}
+
+.timeline__post{
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  border-left: 3px solid var(--uiTimelineMainColor);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+  background-color: var(--uiTimelineSecondaryColor);
+}
+
+@media screen and (min-width: 641px){
+
+  .timeline:before{
+    left: 30px;
+  }
+
+  .timeline__group{
+    padding-top: 55px;
+  }
+
+  .timeline__box{
+    padding-left: 80px;
+  }
+
+  .timeline__box:before{
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .timeline__date{
+    top: 5%;
+    margin-top: -0px;
+  }
+}
+
+@media screen and (max-width: 640px){
+
+  .timeline:before{
+    left: 0;
+  }
+
+  .timeline__group{
+    padding-top: 40px;
+  }
+
+  .timeline__box{
+    padding-left: 20px;
+    padding-top: 70px;
+  }
+
+  .timeline__box:before{
+    top: 90px;
+  }
+
+  .timeline__date{
+    top: 0;
+  }
+}
+
+.timeline{
+  /* --timelineMainColor: #4557bb; */
+  --timelineMainColor: #4679bd;
+  font-size: 15px;
+}
+
+/*
+=====
+DEMO
+=====
+*/
+
+@media (min-width: 768px){
+
+  html{
+    font-size: 62.5%;
+  }
+}
+
+@media (max-width: 767px){
+
+  html{
+    font-size: 55%;
+  }
+}
+
+/* body{
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  font-size: 1.6rem;
+  color: #222;
+
+  background-color: #f0f0f0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+} */
+
+p{
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+p:last-child{
+  margin-bottom: 0;
+}
+
+.page{
+  max-width: 800px;
+  padding: 10rem 2rem 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  order: 1;
+}
+
+/*
+=====
+LinkedIn
+=====
+*/
+
+/* .linkedin{
+  background-color: #fff;
+  text-align: center;
+}
+
+.linkedin__container{
+  max-width: 1000px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.linkedin__text{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.linkedin__link{
+  color: #ff5c5c;
+} */
+
+h2 {
+    margin-bottom: 30px;
+    color: #4679bd;
+    font-weight: 200;
+    text-align: center;
+}
+
 </style>
 
 <body>
 
     <div class="w3-content" style="max-width:2000px;bottom:0px;">
+            <!-- intro -->
     	<section class="w3-container w3-center w3-content" style="max-width:600px;">
     	</br>
     		<h1 class = "w3-wide w3-center" >Jiaxi He</h1>
@@ -28,7 +261,8 @@ body {
     		<p class = "w3-justify w3-center">I spot values and oppotunities from data.</p>
     		<p class = "w3-justify w3-center">I consult, share knowledge, and help clients to grow.</p>
     	</section>
-
+    
+<!-- showcases -->
             <section class="w3-container w3-padding-16 w3-center w3-content w3-light-grey">
             <h3 class = " w3-center">Showcases</h3>
             <article class ="w3-half">
@@ -42,11 +276,100 @@ body {
                 <p align ='left' style="max-width:450px;">A platform for text analysis, featuring classification, semantic matching, information extraction, risk spotting, compliance, legal document review etc. Read more details from its <a href="https://www2.deloitte.com/cn/zh/pages/risk/articles/deloitte-cerebrum-engine-data-governance.html">introduction</a>, <a href="https://www2.deloitte.com/cn/zh/pages/risk/articles/deloitte-cerebrum-deep-machine-learning.html">architecture</a>, and <a href="https://www2.deloitte.com/cn/zh/pages/risk/articles/deloitte-intelligent-engine.html">applications</a>.</p>
             </article>
         </section>
+  <!-- Teaching -->
+    <section class="w3-container w3-padding-16 w3-center w3-content w3-light-grey">
+    <h2 class = " w3-center">Tutorials</h2>
 
+    <!-- Memos -->
+    <section class="w3-container w3-padding-32 w3-center w3-content w3-light-grey" >
+      <h2 class = " w3-center">Memos</h2>
+      <div class="page" style="max-height:1200px;overflow:scroll;">
+        <div class="timeline">
+          <div class="timeline__group">
+            <span class="timeline__year">2020</span>
+            <!--2020 June 2  -->
+            <div class="timeline__box">
+              <div class="timeline__date">
+                <span class="timeline__day">2</span>
+                <span class="timeline__month">June</span>
+              </div>
+              <div class="timeline__post">
+                <div class="timeline__content">
+                  <p>Semantic search using Siamese BERT Networks: </p>
+                  <p>1. ELMO: feature-based model </p>
+                  <p>2. BERT-AS-A-BERT body by Tencent AI: using the second-to-last embeddings from BERT and then use Average-pooling to derive a fixed-sized sentence embedding vector, the result is also not very satisfying. </p>
+                  <p>3. <span style="color:red"> Sentence-BERT</span>: Siamese BERT network (2019 EMNLP) </p>
+                  <p> Github: <url>https://github.com/UKPLab/sentence-transformers#Training </url> </p>
+                  <p> BERT / RoBERTa / XLM-RoBERTa produces out-of-the-box rather bad sentence embeddings. This repository fine-tunes BERT / RoBERTa / DistilBERT / ALBERT / XLNet with a siamese or triplet network structure and adds a pooling (default:MEAN pooling) operation to the output, to produce semantically meaningful sentence embeddings that can be used in unsupervised scenarios: Semantic textual similarity via cosine-similarity, clustering, semantic search. </p>
+                </div>
+                <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+                <div class="timeline__content">
+                  <p>Vector similarity caculation </p>
+                  <p>Apart from the cosine-similarity, facebook AI proposed a "<span style="color:red">Faiss</span>" library, which wrapped in python/numpy, for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size, up to ones that possibly do not fit in RAM.  </p>
+                  <p> </p>
+                </div>
+              </div>
+            </div>
+            <!--2020 June 1  -->
+            <div class="timeline__box">
+              <div class="timeline__date">
+                <span class="timeline__day">1</span>
+                <span class="timeline__month">June</span>
+              </div>
+              <div class="timeline__post">
+                <div class="timeline__content">
+                  <p> Report "Semantic matching in search 2014" by Huawei (Click-through Data)：</p>
+                  <p>1. Matching by query reformulation </p>
+                  <p>-spelling error correction, merging, splitting, stemming... to improve the matching</p>
+                  <p>2. Matching with Team Dependency Model</p>
+                  <p>- multiple terms (phrases, n-grams, etc). Ex: "Hot dog" vs "Hot", "Dog"</p>
+                  <p>3. Matching with Translation model</p>
+                  <p>- Statistical machine translation technology can be used to deal with query and document mismatch in search "nyc"="new york city"</p>
+                  <p>4. Matching with topic model</p>
+                  <p>5. Matching with latent space model (Embedding)</p>
+                  <p>- Nowadays, most frequently used</p>
+                  <p>For the Arthena project, currently, it relies mainly on the fourth point to find the query and the embedding of the document, and then calculate the cosine similarity. We can think about how to improve/refine the chatbot using the remaining four techniques.</p>
+                </div>
+              </div>
+            </div>
+            <!--2020 May 28  -->
+            <div class="timeline__box">
+              <div class="timeline__date">
+                <span class="timeline__day">28</span>
+                <span class="timeline__month">May</span>
+              </div>
+              <div class="timeline__post">
+                <div class="timeline__content">
+                  <p>For the Arthena chatbot, if substitute the feature-based google nnlm-128 model to Bert base model and use the [cls] pre-trained embeddings, the semantic matching result is not good.</p>
+                  <p>I may need to find a “similar sentences” dataset to fine-tune the Bert model.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- -->
+        </div>
+      </div>
+<!-- <div class="linkedin">
+  <div class="linkedin__container">
+    <p class="linkedin__text">I'm looking for my fans which I'll give away everything I know. If you're interested then 👉 <a href="https://www.patreon.com/posts/introduction-to-34774556" class="linkedin__link" rel="noopener noreferrer" target="_blank">join to me on Patreon!</a></p>
+  </div>
+</div> -->
+   </section>
+        
         <canvas class="w3-center" style="margin-bottom:0px;padding-bottom:0px;position:absolute;top:0px;bottom:0px;z-index:-1;">
         	<script src="local.js"></script>
         </canvas>
      </div>
+
+<footer class="w3-container w3-padding-20 w3-center w3-black w3-xlarge">
+  <a href="/cvhjx.pdf"><i class="fa fa-file-pdf-o w3-hover-opacity"></i></a>&nbsp;&nbsp;
+  <a href="http://github.com/JiaxiHe"><i class="fa fa-github w3-hover-opacity"></i></a>&nbsp;&nbsp;
+  <a href="http://www.researchgate.net/profile/jiaxi_he4"><i class="ai ai-researchgate-square w3-hover-opacity"></i></a>&nbsp;&nbsp;
+  <a href="http://www.linkedin.com/in/jiaxi-he-20423747"><i class="fa fa-linkedin w3-hover-opacity"></i></a>&nbsp;&nbsp;
+  <a href="http://www.facebook.com/jiaxi.he"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>&nbsp;&nbsp;
+  <a href="mailto:jiaxihe1989@gmail.com"><i class="fa fa-envelope-o w3-hover-opacity"></i></a>&nbsp;&nbsp;
+  <p class="w3-medium">Modified by Jiaxi from w3.css</p>
+</footer>
 
      <footer class="w3-container w3-padding-32 w3-center w3-black w3-xlarge w3-bottom">
      	<a href="/cvhjx.pdf"><i class="fa fa-file-pdf-o w3-hover-opacity"></i></a>&nbsp;&nbsp;
