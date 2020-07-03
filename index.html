@@ -304,6 +304,92 @@ h2 {
         <div class="timeline">
           <div class="timeline__group">
             <span class="timeline__year">2020</span>
+              
+            <!--2020 June 12  -->
+            <div class="timeline__box">
+              <div class="timeline__date">
+                <span class="timeline__day">13</span>
+                <span class="timeline__month">June</span>
+              </div>
+              <div class="timeline__post">
+                <div class="timeline__content">
+                  <h3>Dialogue system review</h3>
+                  <p>The dialogue system can usually be divided into three categories based on the user's requirement: <i>the "chit-chat" bot</i>; <i>the task-oriented bot</i>; and <i>the knowledge-inquiring (question-answering) bot</i>. These three types are not mutually exclusive, and there are combined scenarios, like a virtual docent can be both a chit-chat and a knowledge-inquiring bot. Apart from the above, we can also classify the dialogue system into a <i>single-turn</i> and <i>multi-turn</i> conversational bot, depending on whether to consider the conversation context information. This article starts with the "chit-chat" bot.</p>
+                  <p><b>The "chit-chat" bot:</b> can use 1. generative-baed approach, 2. retrieval-based approach, or 3. combined approach.</p>
+                  <img src="dialogue.png" height="300" ></img>
+                  <figcaption>Fig.1 - Dialogue system.</figcaption>
+                  <br>
+                  <p>1. Generative-based approach</p>
+                  <p> The approach can be regarded as a seq2seq model, which obtains great success in the machine translation problem. However, machine translation is more like an objective problem with objective criteria/metrics; while, the dialogue generation is more like a subjective problem with no standard answer [2]. Therefore the assessment for dialogue generation is a troublesome problem, there are a few research works on the dialogue assessment like ADEM and RUBER. Generally, the dialogue generation is a conditional generation problem that requires high coupling between query and answers.</p>
+                  <p>Due to its low reply quality and uncontrollable, the industry prefers to retrieval-based approach that is more practical and robust.</p>
+                  <p>2. Retrieval-based approach </p>
+                  <img src="retrieval.jpg" width="600" ></img>
+                  <figcaption>Fig.2 - Retrieval-based conversation approach.</figcaption>
+                  <br>
+                  <p>The retrieval-based approach studies the response selection. It is suitable for both chitchat and knowledge-inquiring/QA tasks. For QA/FAQ knowledge-inquiring task, single-turn conversation dominates most cases. However, the chit-chat is more incline to multi-turn and context-based. For the dataset, the FAQ is usually closed-domain, and it is easy to get, for example, the corporate documents; while the chit-chat usually has no scope limit and is open-domain, thus the query-response pairs corpus is needed, that is we need to crawl the dialogue corpus from public social media like Twitter, Facebook, and Instagram. </p>
+                  <p>The core of the retrieval-based approach is to construct the (query-response/context-query-response) matching. Some people may found confused when reading research papers about relevance matching and semantic marching [1]. The relevance matching is to rank documents by relevance to a user's query. The semantic matching is used to measure the semantic distance between two pieces of short texts. In other words, the relevance matching is fundamentally an information retrieval (IR) matching task, it operates directly on the similarity matrix obtained from products of query and document embeddings and builds modules on top to capture additional n-gram matching and term importance signals. On the other hand, semantic matching is more an NLP task, which requires more semantic understanding, contextual reasoning, and co-attention (context-aware) rather than specific term matches. In the dialogue system, semantic matching is a better choice. </p>
+                  <img src="matching.png" width="600" ></img>
+                  <figcaption>Fig.3 - Relevance matching vs semantic matching.</figcaption>
+                  <br>
+                  <p>2.1 single-turn conversation</p>
+                  <p>For single-turn conversation, we ignore the conversation history and only focus on the query-response matching, the mainstream methods include semantic representation-oriented technique and semantic interaction-oriented technique. </p>
+                  <p>2.1.1 representation-oriented technique</p>
+                  <p>In the representation oriented framework, the deep learning technique is employed to focus on the mapping of objects from the original text space to the feature space, that is, to calculate the embeddings of query and documents that contain candidate responses.</p>
+                  <img src="representation.png" width="600" ></img>
+                  <figcaption>Fig.4 - Representation-oriented cconversation model.</figcaption>
+                  <br>
+                  <p>Currently, many contextual pre-trained sentence embedding models, such as Elmo, BERT (and its variants), GPT family, can be applied and fine-tuned to get a satisfying result.</p>
+                  <p>2.1.2 interaction-oriented technique</p>
+                  <p>The interaction-oriented technique model the semantic interaction structure between reply and query, focusing on capturing the meaningful interaction matching information from words, phrases, and sentences of reply and query. Fig.5 illustrates an example of interaction structure at different levels.</p>
+                  <img src="interaction.png" width="600" ></img>
+                  <figcaption>Fig.5 - interaction-oriented cconversation model..</figcaption>
+                  <br>
+                  <p>One of the classic interaction-oriented technique for conversation, I would like to introduce here, is the MatchPyramid model [4]. The overview of the MatchPyramid model is shown in the Figure below. Firstly, a matching matrix whose entries represent the similarities between words is constructed and viewed as an image. Then a convolutional neural network is utilized to capture rich matching patterns in a layer-by-layer way. By resembling the compositional hierarchies of patterns in image recognition, the MatchPyramid model can successfully identify salient signals such as n-gram and n-term matchings.</p>
+                  <img src="matchpyramid.png" width="600" ></img>
+                  <figcaption>Fig.6 - Match Pyramid interaction matching model.</figcaption>
+                  <br>
+                  <p>2.2 multi-turn conversation</p>
+                  <p>The biggest difference between a single-turn and a multi-turn conversation model is that the multi-turn conversation model needs to integrate the current query and history conversation as input; its goal is to select a candidate response, which is relevant to the current query as well as corresponding to the conversation context, Fig.7. Still, the mainstream technique can be divided into representation-oriented and interaction-oriented.</p>
+                  <img src="multi_conv.png" width="600" ></img>
+                  <figcaption>Fig.7 - An example of multi-turn conversation.</figcaption>
+                  <br>
+                  <p>2.2.1 representation-oriented technique</p>
+                  <p>Each conversation text is called an utterance. The diagram of the representation-oriented technique for multi-turn conversation is shown in Fig.8. For the utterance representation layer, pre-trained language models like Elmo, BERT, GPT can be applied to calculate the embeddings. For the context representation layer, a simple way is using the pooling technique; autoencoder, DNN, and RNN can also be used to learn the context representation layer from sentence embeddings if you have enough duplicate conversation corpus.  Apart from matching a response with a highly abstract context vector, other existing work may concatenate utterances in context, however, these representation-oriented approaches prone to lose relationships among utterances or important contextual information, thus we can turn to the interaction-oriented technique. </p>
+                  <img src="multi.png" width="600" ></img>
+                  <figcaption>Fig.8 - Diagram for retieval-based representation-oriented multi-turn conversation model.</figcaption>
+                  <br>
+                  <p>2.2.2 interaction-oriented technique</p>
+                  <p>Compared to the representation-oriented technique, the interaction-oriented technique models the interaction pattern between the candidate response and each utterance, hence this approach calculates the matching score in a finer semantic granularity, refer to Fig.9.</p>
+                  <img src="interaction-multi.png" width="600" ></img>
+                  <figcaption>Fig.9 - Diagram for retieval-based interaction-oriented multi-turn conversation model.</figcaption>
+                  <br>
+                  <p>Paper [5] proposed a sequential matching network (SMN), which is motivated by the Match Pyramid model. SMN first matches a response with each utterance in the context on multiple levels of granularity and distills important matching information from each pair as a vector with convolution and pooling operations. The vectors are then accumulated in chronological order through an RNN which models relationships among utterances. The final matching score is calculated with the hidden states of the RNN.</p>
+                  <p>2.2.3 Dataset for multi-turn conversation</p>
+                  <p>-Ubuntu Dialogue Corpus (English)</p>
+                  <p>-Douban Conversation Corpus (Chinese)</p>
+                  <p>Till now (2020 June), the representation-oriented technique using pre-trained language model BERT achieves the best performance on Ubuntu Dialogue Corpus [6].</p>
+                  <p>2.2.4 Metrics </p>
+                  <p>R2@1, R10@1, R10@2, R10@5.</p>
+                  <br>
+                  <p><b>The knowledge-inquiring/question-answering bot:</b></p>
+                  <p>1. FAQ single conversation model</p>
+                  <p>2. CoQA benchmark</p>
+                  <p>3. KB-dialogue study</p>
+                </div>
+                <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+                <div class="timeline__content">
+                  <p> </p>
+                  <p> </p>
+                  <p>[1]. Bridging the Gap Between Relevance Matching and Semantic Matching for Short Text Similarity Modeling.</p>
+                  <p>[2]. https://zhuanlan.zhihu.com/p/83825070</p>
+                  <p>[3]. Survey on deep learning based open domain dialogue system, chinese journal of computers.</p>
+                  <p>[4]. Text Matching as Image Recognition, AAAI 2016. </p>
+                  <p>[5]. Sequential Matching Network, arxiv 2017. </p>
+                  <p>[6]. Domain Adaptive Training BERT for Response Selection. </p>
+                </div>
+              </div>
+            </div>  
+              
             <!--2020 June 2  -->
             <div class="timeline__box">
               <div class="timeline__date">
@@ -327,6 +413,7 @@ h2 {
                 </div>
               </div>
             </div>
+
             <!--2020 June 1  -->
             <div class="timeline__box">
               <div class="timeline__date">
@@ -349,6 +436,7 @@ h2 {
                 </div>
               </div>
             </div>
+
             <!--2020 May 28  -->
             <div class="timeline__box">
               <div class="timeline__date">
