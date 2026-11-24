@@ -297,7 +297,7 @@
             </figure>
             <div class="showcase-body">
               <h3>GenAI to agentic AI transformation</h3>
-              <p>Developing GenAI and agentic AI solutions for banking customers and internal users, with a focus on evaluation, reliability, and operational readiness. The learning example below explores general AI assistance concepts using a fictional study task.</p>
+              <p>Developing GenAI and agentic AI solutions for banking customers and internal users, with a focus on evaluation, reliability, and operational readiness. The fictional banking education example below explores general AI assistance concepts using public information.</p>
               <div class="tag-row">
                 <span class="tag">Orchestrator pattern</span>
                 <span class="tag">Sub-agents</span>
@@ -388,11 +388,11 @@
         </section>
 
         <section id="how">
-          <h2>Agentic AI: a general learning example</h2>
-          <p class="section-note">A conceptual example created for this personal website. It illustrates common AI design ideas and does not describe an employer’s systems, workflows, prompts, or controls.</p>
+          <h2>Agentic AI: a fictional banking education example</h2>
+          <p class="section-note">Fictional educational example using public information. Created for this personal website; it does not describe any bank’s systems, workflows, prompts, or controls.</p>
           <div class="how">
-            <h3>Exploring a question with AI assistance</h3>
-            <p class="sub">For example, a learning assistant might help someone research a topic and organise the findings. Select an activity to explore the idea. Real applications can use different approaches.</p>
+            <h3>Understanding everyday banking concepts</h3>
+            <p class="sub">Imagine an educational assistant that explains savings, loans, interest, and common banking terms using public information. Select an activity to explore the idea.</p>
             <div class="flow" role="group" aria-label="Illustrative activities">
               <button type="button" data-stage="query" aria-pressed="false"><span class="n">1</span>Ask a question</button>
               <span class="arrow" aria-hidden="true">→</span>
@@ -406,18 +406,18 @@
             </div>
             <div class="stage-panel" id="stagePanel" aria-live="polite">
               <h4 id="stageTitle">Plan the work</h4>
-              <p id="stageText">Break a broad learning question into smaller topics to explore.</p>
+              <p id="stageText">Identify which banking concepts would help answer the educational question.</p>
             </div>
             <div class="agents">
-              <h4>Example learning activities</h4>
-              <p class="sub" style="margin-bottom:12px;">These fictional activities show different ways an assistant could help with a study topic.</p>
-              <div class="agent-chips" role="group" aria-label="Learning activities">
-                <button type="button" data-agent="research" data-tone="sky" aria-pressed="true">Research</button>
-                <button type="button" data-agent="compare" data-tone="butter" aria-pressed="false">Compare ideas</button>
-                <button type="button" data-agent="explain" data-tone="sage" aria-pressed="false">Explain</button>
-                <button type="button" data-agent="summarise" data-tone="pink" aria-pressed="false">Summarise</button>
+              <h4>Example banking education activities</h4>
+              <p class="sub" style="margin-bottom:12px;">Explore general explanations and hypothetical examples. No customer data, real accounts, transactions, or bank-specific products are used.</p>
+              <div class="agent-chips" role="group" aria-label="Banking education activities">
+                <button type="button" data-agent="research" data-tone="sky" aria-pressed="true">Explain a term</button>
+                <button type="button" data-agent="compare" data-tone="butter" aria-pressed="false">Compare concepts</button>
+                <button type="button" data-agent="explain" data-tone="sage" aria-pressed="false">Illustrate a calculation</button>
+                <button type="button" data-agent="summarise" data-tone="pink" aria-pressed="false">Summarise information</button>
               </div>
-              <p class="agent-panel" id="agentPanel"><strong>Research.</strong> Find introductory material about a topic using public sources.</p>
+              <p class="agent-panel" id="agentPanel"><strong>Explain a term.</strong> Explain concepts such as principal, interest, or a loan term using everyday language.</p>
             </div>
           </div>
         </section>
@@ -490,7 +490,7 @@
 
     <script>
       (function () {
-        var stages = {"query": {"title": "Ask a question", "text": "Choose a learning topic, such as how renewable energy works."}, "orchestrator": {"title": "Plan the work", "text": "Break a broad learning question into smaller topics to explore."}, "routing": {"title": "Find information", "text": "Look for relevant public learning material and record the sources."}, "agents": {"title": "Explore ideas", "text": "Compare explanations, ask follow-up questions, and identify points that need checking."}, "synthesiser": {"title": "Review a draft", "text": "Organise the findings into a draft summary. Check sources and uncertainty before relying on the answer."}};
+        var stages = {"query": {"title": "Ask a question", "text": "Ask a general educational question, such as what simple interest means."}, "orchestrator": {"title": "Plan the work", "text": "Identify which banking concepts would help answer the educational question."}, "routing": {"title": "Find information", "text": "Consult public educational material and identify sources for the explanation."}, "agents": {"title": "Explore ideas", "text": "Explain terms, compare concepts, and use hypothetical figures to illustrate a calculation."}, "synthesiser": {"title": "Review a draft", "text": "Organise the explanation into a short summary and check sources and assumptions. Examples are educational and are not personalised financial advice."}};
         var stageBtns = Array.prototype.slice.call(document.querySelectorAll("[data-stage]"));
         var stageTitle = document.getElementById("stageTitle");
         var stageText = document.getElementById("stageText");
@@ -504,7 +504,7 @@
           });
         });
 
-        var agents = {"research": "<strong>Research.</strong> Find introductory material about a topic using public sources.", "compare": "<strong>Compare ideas.</strong> Organise similarities, differences, and open questions.", "explain": "<strong>Explain.</strong> Rephrase a difficult concept with a simple example.", "summarise": "<strong>Summarise.</strong> Draft a short overview for the reader to check against the sources."};
+        var agents = {"research": "<strong>Explain a term.</strong> Explain concepts such as principal, interest, or a loan term using everyday language.", "compare": "<strong>Compare concepts.</strong> Describe the general difference between simple and compound interest using public definitions.", "explain": "<strong>Illustrate a calculation.</strong> Use invented figures to explain how a formula works. This is not a quote, a product offer, or a calculation for a real account.", "summarise": "<strong>Summarise information.</strong> Present key learning points and public references. Actual products have their own terms; examples are not personalised financial advice."};
         var agentBtns = Array.prototype.slice.call(document.querySelectorAll("[data-agent]"));
         var agentPanel = document.getElementById("agentPanel");
         agentBtns.forEach(function (btn) {
