@@ -297,7 +297,7 @@
             </figure>
             <div class="showcase-body">
               <h3>GenAI to agentic AI transformation</h3>
-              <p>Developing GenAI and agentic AI solutions for banking customers and internal users, with a focus on evaluation, reliability, and operational readiness. The fictional banking education example below explores general AI assistance concepts using public information.</p>
+              <p>Developing GenAI and agentic AI solutions for banking customers and internal users, with a focus on evaluation, reliability, and operational readiness. The fictional business-banking example below shows how specialist assistance can bring a customer’s payment-preparation questions into one practical response.</p>
               <div class="tag-row">
                 <span class="tag">Orchestrator pattern</span>
                 <span class="tag">Sub-agents</span>
@@ -388,36 +388,42 @@
         </section>
 
         <section id="how">
-          <h2>Agentic AI: a fictional banking education example</h2>
-          <p class="section-note">Fictional educational example using public information. Created for this personal website; it does not describe any bank’s systems, workflows, prompts, or controls.</p>
+          <h2>Agentic AI for business banking: a fictional example</h2>
+          <p class="section-note">An illustrative customer-service scenario created for this portfolio. The flow and specialist roles are fictional and do not represent any employer’s systems, prompts, or procedures.</p>
           <div class="how">
-            <h3>Understanding everyday banking concepts</h3>
-            <p class="sub">Imagine an educational assistant that explains savings, loans, interest, and common banking terms using public information. Select an activity to explore the idea.</p>
-            <div class="flow" role="group" aria-label="Illustrative activities">
-              <button type="button" data-stage="query" aria-pressed="false"><span class="n">1</span>Ask a question</button>
+            <h3>Helping a business prepare an overseas supplier payment</h3>
+            <p class="lead"><strong>Customer:</strong> “I need to pay an overseas supplier in a different currency. What details should I prepare, what charges should I check, and how can I follow up?”</p>
+            <p class="sub">The fictional assistant brings together several areas of banking help into a practical preparation checklist. Select a step or specialist below to see an example.</p>
+            <div class="flow" role="group" aria-label="Fictional customer assistance flow">
+              <button type="button" data-stage="query" aria-pressed="false"><span class="n">1</span>Customer request</button>
               <span class="arrow" aria-hidden="true">→</span>
-              <button type="button" data-stage="orchestrator" aria-pressed="true"><span class="n">2</span>Plan the work</button>
+              <button type="button" data-stage="orchestrator" aria-pressed="true"><span class="n">2</span>Identify needs</button>
               <span class="arrow" aria-hidden="true">→</span>
-              <button type="button" data-stage="routing" aria-pressed="false"><span class="n">3</span>Find information</button>
+              <button type="button" data-stage="routing" aria-pressed="false"><span class="n">3</span>Specialist help</button>
               <span class="arrow" aria-hidden="true">→</span>
-              <button type="button" data-stage="agents" aria-pressed="false"><span class="n">4</span>Explore ideas</button>
+              <button type="button" data-stage="agents" aria-pressed="false"><span class="n">4</span>Combine guidance</button>
               <span class="arrow" aria-hidden="true">→</span>
-              <button type="button" data-stage="synthesiser" aria-pressed="false"><span class="n">5</span>Review a draft</button>
+              <button type="button" data-stage="synthesiser" aria-pressed="false"><span class="n">5</span>Customer next steps</button>
             </div>
             <div class="stage-panel" id="stagePanel" aria-live="polite">
-              <h4 id="stageTitle">Plan the work</h4>
-              <p id="stageText">Identify which banking concepts would help answer the educational question.</p>
+              <h4 id="stageTitle">Identify needs</h4>
+              <p id="stageText">Recognise four parts of the question: payment details, currency and charges, supporting documents, and follow-up. No account access is needed for this illustrative preparation task.</p>
             </div>
             <div class="agents">
-              <h4>Example banking education activities</h4>
-              <p class="sub" style="margin-bottom:12px;">Explore general explanations and hypothetical examples. No customer data, real accounts, transactions, or bank-specific products are used.</p>
-              <div class="agent-chips" role="group" aria-label="Banking education activities">
-                <button type="button" data-agent="research" data-tone="sky" aria-pressed="true">Explain a term</button>
-                <button type="button" data-agent="compare" data-tone="butter" aria-pressed="false">Compare concepts</button>
-                <button type="button" data-agent="explain" data-tone="sage" aria-pressed="false">Illustrate a calculation</button>
-                <button type="button" data-agent="summarise" data-tone="pink" aria-pressed="false">Summarise information</button>
+              <h4>Fictional banking specialists</h4>
+              <p class="sub" style="margin-bottom:12px;">Select a specialist to see its contribution to the same customer question.</p>
+              <div class="agent-chips" role="group" aria-label="Fictional banking specialists">
+                <button type="button" data-agent="research" data-tone="sky" aria-pressed="true">Payment guidance</button>
+                <button type="button" data-agent="compare" data-tone="butter" aria-pressed="false">Currency &amp; fees</button>
+                <button type="button" data-agent="explain" data-tone="sage" aria-pressed="false">Document preparation</button>
+                <button type="button" data-agent="summarise" data-tone="pink" aria-pressed="false">Payment follow-up</button>
               </div>
-              <p class="agent-panel" id="agentPanel"><strong>Explain a term.</strong> Explain concepts such as principal, interest, or a loan term using everyday language.</p>
+              <p class="agent-panel" id="agentPanel"><strong>Payment guidance.</strong> Help the customer prepare a checklist of beneficiary details, destination, payment currency, and invoice reference to confirm through their bank’s official payment instructions.</p>
+            </div>
+            <div class="stage-panel" style="margin-top:24px;">
+              <h4>Illustrative combined response</h4>
+              <p>“Before submitting the transfer, confirm the supplier’s beneficiary details and invoice reference; review the exchange rate and applicable charges in your bank’s official channel; check which supporting documents are required; and keep the payment reference for follow-up. Confirm availability and expected timing with your bank.”</p>
+              <p class="sub">This is a static demonstration of a fictional assistant. It does not access accounts, quote rates, submit payments, or check transaction status.</p>
             </div>
           </div>
         </section>
@@ -490,7 +496,7 @@
 
     <script>
       (function () {
-        var stages = {"query": {"title": "Ask a question", "text": "Ask a general educational question, such as what simple interest means."}, "orchestrator": {"title": "Plan the work", "text": "Identify which banking concepts would help answer the educational question."}, "routing": {"title": "Find information", "text": "Consult public educational material and identify sources for the explanation."}, "agents": {"title": "Explore ideas", "text": "Explain terms, compare concepts, and use hypothetical figures to illustrate a calculation."}, "synthesiser": {"title": "Review a draft", "text": "Organise the explanation into a short summary and check sources and assumptions. Examples are educational and are not personalised financial advice."}};
+        var stages = {"query": {"title": "Customer request", "text": "A fictional business customer wants to pay an overseas supplier and asks about preparation, currency conversion, charges, and follow-up."}, "orchestrator": {"title": "Identify needs", "text": "Recognise four parts of the question: payment details, currency and charges, supporting documents, and follow-up. No account access is needed for this illustrative preparation task."}, "routing": {"title": "Specialist help", "text": "In this fictional design, payment guidance, currency and fees, document preparation, and follow-up specialists each contribute a short explanation based on public information."}, "agents": {"title": "Combine guidance", "text": "Bring the explanations into one checklist: prepare payment details, confirm currency and charges, check document requirements, and retain a reference for follow-up. Leave bank-specific terms and timing for the customer to verify."}, "synthesiser": {"title": "Customer next steps", "text": "The customer reviews the checklist and uses their bank’s official channel to confirm current terms and submit the payment. The fictional assistant does not perform transactions or provide live status."}};
         var stageBtns = Array.prototype.slice.call(document.querySelectorAll("[data-stage]"));
         var stageTitle = document.getElementById("stageTitle");
         var stageText = document.getElementById("stageText");
@@ -504,7 +510,7 @@
           });
         });
 
-        var agents = {"research": "<strong>Explain a term.</strong> Explain concepts such as principal, interest, or a loan term using everyday language.", "compare": "<strong>Compare concepts.</strong> Describe the general difference between simple and compound interest using public definitions.", "explain": "<strong>Illustrate a calculation.</strong> Use invented figures to explain how a formula works. This is not a quote, a product offer, or a calculation for a real account.", "summarise": "<strong>Summarise information.</strong> Present key learning points and public references. Actual products have their own terms; examples are not personalised financial advice."};
+        var agents = {"research": "<strong>Payment guidance.</strong> Help the customer prepare a checklist of beneficiary details, destination, payment currency, and invoice reference to confirm through their bank’s official payment instructions.", "compare": "<strong>Currency &amp; fees.</strong> Explain which questions to ask about the exchange rate, transfer charges, and possible intermediary or receiving-bank charges. Use the bank’s official quote for actual amounts.", "explain": "<strong>Document preparation.</strong> Suggest checking whether an invoice, payment-purpose description, or other supporting documents are needed. Requirements depend on the bank and destination; this example does not prescribe a bank’s document rules.", "summarise": "<strong>Payment follow-up.</strong> Explain how retaining a payment reference can help when checking the official status channel or contacting support. This example cannot track a real payment or promise an arrival time."};
         var agentBtns = Array.prototype.slice.call(document.querySelectorAll("[data-agent]"));
         var agentPanel = document.getElementById("agentPanel");
         agentBtns.forEach(function (btn) {
