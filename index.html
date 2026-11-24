@@ -297,7 +297,7 @@
             </figure>
             <div class="showcase-body">
               <h3>GenAI to agentic AI transformation</h3>
-              <p>Developing GenAI and agentic AI solutions for banking customers and internal users, with a focus on evaluation, reliability, and operational readiness. The interactive example below illustrates a generic orchestrator pattern in which specialised agents use data and tools to complete tasks.</p>
+              <p>Developing GenAI and agentic AI solutions for banking customers and internal users, with a focus on evaluation, reliability, and operational readiness. The learning example below explores general AI assistance concepts using a fictional study task.</p>
               <div class="tag-row">
                 <span class="tag">Orchestrator pattern</span>
                 <span class="tag">Sub-agents</span>
@@ -388,41 +388,36 @@
         </section>
 
         <section id="how">
-          <h2>Agentic AI: an illustrative example</h2>
-          <p class="section-note">A generic educational example of an orchestrator and specialist agents. The stages and agent categories are illustrative. Select a stage to explore the pattern.</p>
-
+          <h2>Agentic AI: a general learning example</h2>
+          <p class="section-note">A conceptual example created for this personal website. It illustrates common AI design ideas and does not describe an employer’s systems, workflows, prompts, or controls.</p>
           <div class="how">
-            <h3>From a user's query to one combined answer</h3>
-            <p class="sub">Each stage has its own job — and its own prompt that tells it how to do that job.</p>
-
-            <div class="flow" role="group" aria-label="Pipeline stages">
-              <button type="button" data-stage="query" aria-pressed="false"><span class="n">1</span>User query</button>
+            <h3>Exploring a question with AI assistance</h3>
+            <p class="sub">For example, a learning assistant might help someone research a topic and organise the findings. Select an activity to explore the idea. Real applications can use different approaches.</p>
+            <div class="flow" role="group" aria-label="Illustrative activities">
+              <button type="button" data-stage="query" aria-pressed="false"><span class="n">1</span>Ask a question</button>
               <span class="arrow" aria-hidden="true">→</span>
-              <button type="button" data-stage="orchestrator" aria-pressed="true"><span class="n">2</span>Orchestrator</button>
+              <button type="button" data-stage="orchestrator" aria-pressed="true"><span class="n">2</span>Plan the work</button>
               <span class="arrow" aria-hidden="true">→</span>
-              <button type="button" data-stage="routing" aria-pressed="false"><span class="n">3</span>Routing gateway</button>
+              <button type="button" data-stage="routing" aria-pressed="false"><span class="n">3</span>Find information</button>
               <span class="arrow" aria-hidden="true">→</span>
-              <button type="button" data-stage="agents" aria-pressed="false"><span class="n">4</span>Sub-agents</button>
+              <button type="button" data-stage="agents" aria-pressed="false"><span class="n">4</span>Explore ideas</button>
               <span class="arrow" aria-hidden="true">→</span>
-              <button type="button" data-stage="synthesiser" aria-pressed="false"><span class="n">5</span>Synthesiser</button>
+              <button type="button" data-stage="synthesiser" aria-pressed="false"><span class="n">5</span>Review a draft</button>
             </div>
-
             <div class="stage-panel" id="stagePanel" aria-live="polite">
-              <h4 id="stageTitle">Orchestrator</h4>
-              <p id="stageText">Understands the user's input, breaks it into the tasks needed, and works out which sub-agents are required to generate the answer. Simple questions that need no knowledge-base information are answered directly here.</p>
-              <p class="prompt-note" id="stagePrompt">Prompt: the orchestrator has its own prompt, describing each sub-agent — what it is for, when to use it, and what it returns — so it can plan the work.</p>
+              <h4 id="stageTitle">Plan the work</h4>
+              <p id="stageText">Break a broad learning question into smaller topics to explore.</p>
             </div>
-
             <div class="agents">
-              <h4>The sub-agents</h4>
-              <p class="sub" style="margin-bottom:12px;">Each sub-agent covers one broad area of banking help, so questions are handled in general terms. Select one to see what it handles.</p>
-              <div class="agent-chips" role="group" aria-label="Sub-agents">
-                <button type="button" data-agent="account" data-tone="sky" aria-pressed="true">Account Information</button>
-                <button type="button" data-agent="payment" data-tone="butter" aria-pressed="false">Payments &amp; Transactions</button>
-                <button type="button" data-agent="service-request" data-tone="sage" aria-pressed="false">Service &amp; Support</button>
-                <button type="button" data-agent="faq" data-tone="pink" aria-pressed="false">General Help</button>
+              <h4>Example learning activities</h4>
+              <p class="sub" style="margin-bottom:12px;">These fictional activities show different ways an assistant could help with a study topic.</p>
+              <div class="agent-chips" role="group" aria-label="Learning activities">
+                <button type="button" data-agent="research" data-tone="sky" aria-pressed="true">Research</button>
+                <button type="button" data-agent="compare" data-tone="butter" aria-pressed="false">Compare ideas</button>
+                <button type="button" data-agent="explain" data-tone="sage" aria-pressed="false">Explain</button>
+                <button type="button" data-agent="summarise" data-tone="pink" aria-pressed="false">Summarise</button>
               </div>
-              <p class="agent-panel" id="agentPanel"><strong>Account Information.</strong> General help with account-related questions — for example, questions about accounts and the information or services connected to them.</p>
+              <p class="agent-panel" id="agentPanel"><strong>Research.</strong> Find introductory material about a topic using public sources.</p>
             </div>
           </div>
         </section>
@@ -495,37 +490,10 @@
 
     <script>
       (function () {
-        var stages = {
-          query: {
-            title: "User query",
-            text: "A banking customer or internal user asks a question in chat — anything from account information to payments and transactions, service and support, or a general question about corporate services and features.",
-            prompt: ""
-          },
-          orchestrator: {
-            title: "Orchestrator",
-            text: "Understands the user's input, breaks it into the tasks needed, and works out which sub-agents are required to generate the answer. Simple questions that need no knowledge-base information are answered directly here.",
-            prompt: "Prompt: the orchestrator has its own prompt, describing each sub-agent — what it is for, when to use it, and what it returns — so it can plan the work."
-          },
-          routing: {
-            title: "Routing gateway",
-            text: "Takes the orchestrator's tasks and routes each one to the relevant sub-agent. Along the way it detects the language used and whether the query is personal banking or business banking.",
-            prompt: "Prompt: the routing gateway has its own prompt too — given a task, it decides which sub-agent should take it and what context to pass along."
-          },
-          agents: {
-            title: "Sub-agents",
-            text: "A small set of specialised agents each cover one broad area — account information, payments and transactions, service and support, and general help. Each handles its area in general terms, based on the kind of question asked.",
-            prompt: "Prompt: each sub-agent has its own prompt, describing the broad area it covers and the kind of questions it should handle."
-          },
-          synthesiser: {
-            title: "Synthesiser",
-            text: "Collects the sub-agents' responses and combines them into one clear answer for the user.",
-            prompt: "Prompt: the synthesiser works from what the sub-agents returned — combining, not inventing."
-          }
-        };
+        var stages = {"query": {"title": "Ask a question", "text": "Choose a learning topic, such as how renewable energy works."}, "orchestrator": {"title": "Plan the work", "text": "Break a broad learning question into smaller topics to explore."}, "routing": {"title": "Find information", "text": "Look for relevant public learning material and record the sources."}, "agents": {"title": "Explore ideas", "text": "Compare explanations, ask follow-up questions, and identify points that need checking."}, "synthesiser": {"title": "Review a draft", "text": "Organise the findings into a draft summary. Check sources and uncertainty before relying on the answer."}};
         var stageBtns = Array.prototype.slice.call(document.querySelectorAll("[data-stage]"));
         var stageTitle = document.getElementById("stageTitle");
         var stageText = document.getElementById("stageText");
-        var stagePrompt = document.getElementById("stagePrompt");
         stageBtns.forEach(function (btn) {
           btn.addEventListener("click", function () {
             var s = stages[btn.getAttribute("data-stage")];
@@ -533,17 +501,10 @@
             stageBtns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
             stageTitle.textContent = s.title;
             stageText.textContent = s.text;
-            stagePrompt.textContent = s.prompt;
-            stagePrompt.style.display = s.prompt ? "" : "none";
           });
         });
 
-        var agents = {
-          account: "<strong>Account Information.</strong> General help with account-related questions — for example, questions about accounts and the information or services connected to them.",
-          payment: "<strong>Payments &amp; Transactions.</strong> General help with payments and transaction questions — for example, how payments work and questions about transactions in general.",
-          "service-request": "<strong>Service &amp; Support.</strong> General help with service and support questions — for example, questions about getting help, follow-up, and support for banking services.",
-          faq: "<strong>General Help.</strong> Common questions about corporate services and features in general, answered in general terms."
-        };
+        var agents = {"research": "<strong>Research.</strong> Find introductory material about a topic using public sources.", "compare": "<strong>Compare ideas.</strong> Organise similarities, differences, and open questions.", "explain": "<strong>Explain.</strong> Rephrase a difficult concept with a simple example.", "summarise": "<strong>Summarise.</strong> Draft a short overview for the reader to check against the sources."};
         var agentBtns = Array.prototype.slice.call(document.querySelectorAll("[data-agent]"));
         var agentPanel = document.getElementById("agentPanel");
         agentBtns.forEach(function (btn) {
